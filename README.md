@@ -7,7 +7,7 @@
 
 
 ## Installation
-1. Clone Projek ini
+1. Clone Repo ini
     ```bash
     git clone https://github.com/aditnanda/api-transfer-sederhana.git
     cd api-transfer-sederhana
@@ -24,7 +24,7 @@
     php artisan key:generate
     ```
 
-4. Setting databasemu di .env
+4. Setting database di .env
 
 5. Migrate database dan lakukan seeding lalu install passport
     ```bash
@@ -44,5 +44,5 @@
 APP_URL/api/documentation
 
 ## How to update L5 Swagger UI
-You must run `php artisan l5-swagger:generate`
+Please run `php artisan l5-swagger:generate`
 
