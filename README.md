@@ -1,4 +1,4 @@
-# Cridential (default)
+## Credential
 - User : user@boscod.com
 - pass : rahasia
 
