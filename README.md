@@ -9,7 +9,7 @@
 ## Installation
 1. Clone Projek ini
     ```bash
-    git clone 
+    git clone https://github.com/aditnanda/api-transfer-sederhana.git
     cd api-transfer-sederhana
     ```
 2. Install dependencies
