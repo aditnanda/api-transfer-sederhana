@@ -123,19 +123,18 @@ class AuthController extends Controller
     {
         $refresh_token = request('token');
         $oClient = OClient::where('password_client', 1)->first();
-        $http = new Client;
         try {
             //code...
-            $response = $http->request('POST', url('/oauth/token'), [
-                'form_params' => [
+            $response = Http::post(url('/oauth/token'), 
+                [
                     'grant_type' => 'refresh_token',
                     'client_id' => $oClient->id,
                     'client_secret' => $oClient->secret,
                     'refresh_token' => $refresh_token,
                     'scope' => '*',
-                ],
-            ]);
-            $result = json_decode((string) $response->getBody(), true);
+                ]
+            );
+            $result = $response->json();
             return response()->json($result, $this->successStatus);
         } catch (\Throwable $th) {
             //throw $th;
