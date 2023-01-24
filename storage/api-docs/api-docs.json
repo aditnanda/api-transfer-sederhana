@@ -18,7 +18,7 @@
         "/api/auth/login": {
             "post": {
                 "tags": [
-                    "auth"
+                    "Auth"
                 ],
                 "summary": "Login Auth",
                 "description": "Login Auth",
@@ -49,10 +49,48 @@
                 }
             }
         },
+        "/api/auth/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register Auth",
+                "description": "Register Auth",
+                "operationId": "registerAuth",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "example": "aditya.nanda0030@gmail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "12345678"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "example": "Aditya Nanda"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
         "/api/auth/me": {
             "post": {
                 "tags": [
-                    "auth"
+                    "Auth"
                 ],
                 "summary": "Me Auth",
                 "description": "Me Auth",
@@ -77,7 +115,7 @@
         "/api/auth/update-token": {
             "post": {
                 "tags": [
-                    "auth"
+                    "Auth"
                 ],
                 "summary": "Update Token Auth",
                 "description": "Update Token Auth",
@@ -102,6 +140,315 @@
                         "description": "Successful operation"
                     }
                 }
+            }
+        },
+        "/api/bank/": {
+            "get": {
+                "tags": [
+                    "Bank"
+                ],
+                "summary": "All Bank",
+                "description": "All Bank",
+                "operationId": "allBank",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/bank": {
+            "put": {
+                "tags": [
+                    "Bank"
+                ],
+                "summary": "Edit Bank by id",
+                "description": "Edit Bank by id",
+                "operationId": "editBank",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id Bank",
+                        "example": "1"
+                    },
+                    {
+                        "name": "nama_bank",
+                        "in": "query",
+                        "example": "BCA"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Bank"
+                ],
+                "summary": "Create Bank",
+                "description": "Create Bank",
+                "operationId": "createBank",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "nama_bank": {
+                                        "type": "string",
+                                        "example": "BCA"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "Bank"
+                ],
+                "summary": "Delete Bank",
+                "description": "Delete Bank by id Bank",
+                "operationId": "deleteBank",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id Bank",
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/rekening-admin": {
+            "get": {
+                "tags": [
+                    "RekeningAdmin"
+                ],
+                "summary": "All RekeningAdmin",
+                "description": "All RekeningAdmin",
+                "operationId": "allRekeningAdmin",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "RekeningAdmin"
+                ],
+                "summary": "Edit RekeningAdmin by id",
+                "description": "Edit RekeningAdmin by id",
+                "operationId": "editRekeningAdmin",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id RekeningAdmin",
+                        "example": "1"
+                    },
+                    {
+                        "name": "nama_bank",
+                        "in": "query",
+                        "example": "BNI"
+                    },
+                    {
+                        "name": "atas_nama",
+                        "in": "query",
+                        "example": "Bos COD"
+                    },
+                    {
+                        "name": "no_rekening",
+                        "in": "query",
+                        "example": "98301920232"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "RekeningAdmin"
+                ],
+                "summary": "Create RekeningAdmin",
+                "description": "Create RekeningAdmin",
+                "operationId": "createRekeningAdmin",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "nama_bank": {
+                                        "type": "string",
+                                        "example": "BNI"
+                                    },
+                                    "atas_nama": {
+                                        "type": "string",
+                                        "example": "Bos COD"
+                                    },
+                                    "no_rekening": {
+                                        "type": "string",
+                                        "example": "98301920232"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "delete": {
+                "tags": [
+                    "RekeningAdmin"
+                ],
+                "summary": "Delete RekeningAdmin",
+                "description": "Delete RekeningAdmin by id RekeningAdmin",
+                "operationId": "deleteRekeningAdmin",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "query",
+                        "description": "id RekeningAdmin",
+                        "example": "1"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/transfer": {
+            "get": {
+                "tags": [
+                    "Transfer"
+                ],
+                "summary": "All Transfer",
+                "description": "All Transfer",
+                "operationId": "allTransfer",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "Transfer"
+                ],
+                "summary": "Create Transfer",
+                "description": "Create Transfer",
+                "operationId": "createTransfer",
+                "requestBody": {
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "properties": {
+                                    "nilai_transfer": {
+                                        "type": "string",
+                                        "example": "50000"
+                                    },
+                                    "bank_tujuan": {
+                                        "type": "string",
+                                        "example": "BCA"
+                                    },
+                                    "rekening_tujuan": {
+                                        "type": "string",
+                                        "example": "98301920232"
+                                    },
+                                    "atasnama_tujuan": {
+                                        "type": "string",
+                                        "example": "Fulan"
+                                    },
+                                    "bank_pengirim": {
+                                        "type": "string",
+                                        "example": "BNI"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
             }
         }
     },

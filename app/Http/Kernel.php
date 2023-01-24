@@ -63,5 +63,12 @@ class Kernel extends HttpKernel
         'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'checkToken' => \App\Http\Middleware\CheckToken::class,
+
+    ];
+
+    protected $middlewarePriority = [
+        \App\Http\Middleware\CheckToken::class, // new middleware
+        \App\Http\Middleware\Authenticate::class,
     ];
 }
